@@ -1,0 +1,17 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  nginx:
+    image: $CI_REGISTRY_IMAGE/nginx:latest
+    ports:
+      - "8080:80"
+
+  postgres:
+    image: $CI_REGISTRY_IMAGE/postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
